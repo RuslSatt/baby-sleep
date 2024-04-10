@@ -1,1 +1,2 @@
-export const APP_WRITE_ID = '661642d230e52a801104';
+export const DATABASE_ID = '661642d230e52a801104';
+export const SLEEPS_COLLECTION_ID = '661648cbb98776a1bf93';

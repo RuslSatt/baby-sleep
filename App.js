@@ -1,11 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import SleepsPage from './src/pages/SleepsPage';
 
 export default function App() {
 	return (
 		<View style={styles.container}>
-			<Text>Hello</Text>
-			<StatusBar style="auto" />
+			<SleepsPage />
 		</View>
 	);
 }
@@ -13,7 +12,7 @@ export default function App() {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff',
+		backgroundColor: '#eae1e1',
 		alignItems: 'center',
 		justifyContent: 'center'
 	}

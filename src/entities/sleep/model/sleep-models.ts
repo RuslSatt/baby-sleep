@@ -7,5 +7,5 @@ export interface ISleepCard {
 }
 
 export interface ISleepCardSchema {
-	sleep?: ISleepCard;
+	items?: ISleepCard[];
 }

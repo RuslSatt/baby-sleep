@@ -1,6 +1,6 @@
 import React from 'react';
-import SleepCard from '../../../entities/SleepCard';
 import { FlatList, View } from 'react-native';
+import SleepCard from '../../../entities/sleep';
 
 const testData = [
 	{ id: 1, title: 'Дневной сон' },

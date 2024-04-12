@@ -1,10 +1,24 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { ISleep, SleepTypes } from '../../../entities/sleep';
+import { useSleepStore } from '../../../entities/sleep/model/sleep-store';
 
 const ToggleSleepButton = () => {
+
+	const { createSleep } = useSleepStore();
+
+	const onToggleSleep = () => {
+		const Sleep: ISleep = {
+			type: SleepTypes.day,
+			startDate: new Date()
+		};
+
+		createSleep(Sleep);
+	};
+
 	return (
 		<View style={styles.container}>
-			<Pressable>
+			<Pressable onPress={onToggleSleep}>
 				<Text style={styles.text}>Начать сон</Text>
 			</Pressable>
 		</View>

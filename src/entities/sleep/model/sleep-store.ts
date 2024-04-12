@@ -11,7 +11,7 @@ export const useSleepStore = create<ISleepSchema & Actions>((set) => ({
 	sleeps: [],
 	fetchSleeps: async () => {
 		const response = await DB.listDocuments(`${DATABASE_ID}`, `${SLEEPS_COLLECTION_ID}`);
-		const data = response.documents as unknown as ISleep[];
+		const data = response.documents as ISleep[];
 		set({ sleeps: data });
 	}
 }));

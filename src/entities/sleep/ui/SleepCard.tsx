@@ -1,14 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { ISleep } from '../model/sleep-models';
+import { getViewDate } from '../../../shared/libs/day';
+import { ISleep, SleepTypes } from '../model/sleep-models';
 
 const SleepCard = (props: ISleep) => {
-	const { title, duration } = props;
+	const { type, duration, startDate, endDate, description } = props;
+
+	const text = type === SleepTypes.day ? 'Дневной сон' : 'Ночной сон';
 
 	return (
 		<View style={styles.item}>
-			<Text style={styles.title}>{title}</Text>
-			<Text>{duration}</Text>
+			<Text style={styles.text}>{text}</Text>
+			<View style={styles.time}>
+				<Text style={styles.text}>{getViewDate(startDate)} - {getViewDate(endDate)} = {duration}</Text>
+			</View>
+			<Text style={styles.description}>{description}</Text>
 		</View>
 	);
 };
@@ -16,6 +22,7 @@ const SleepCard = (props: ISleep) => {
 const styles = StyleSheet.create({
 	item: {
 		backgroundColor: '#630bc1',
+		color: '#fafafa',
 		padding: 10,
 		marginVertical: 8,
 		marginHorizontal: 16,
@@ -25,8 +32,20 @@ const styles = StyleSheet.create({
 		flexDirection: 'column',
 		gap: 10
 	},
-	title: {
-		fontSize: 18
+	text: {
+		fontSize: 18,
+		color: '#fafafa'
+	},
+	time: {
+		display: 'flex',
+		paddingVertical: 5
+	},
+	description: {
+		fontSize: 16,
+		paddingVertical: 5,
+		borderTopWidth: 1,
+		borderTopColor: '#fafafa',
+		color: '#fafafa'
 	}
 });
 

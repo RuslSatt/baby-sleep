@@ -1,10 +1,17 @@
 export interface ISleep {
 	$id: string;
-	title?: string;
+	type?: SleepType;
 	description?: string;
-	startTime?: Date;
-	endTime?: Date;
+	startDate?: Date;
+	endDate?: Date;
 	duration?: number;
+}
+
+export type SleepType = SleepTypes.day | SleepTypes.night
+
+export enum SleepTypes {
+	day = 'day',
+	night = 'night'
 }
 
 export interface ISleepSchema {

@@ -1,33 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { ISleep } from '../model/sleep-models';
 
-export interface SleepProps {
-	title?: string;
-	description?: string;
-	startTime?: Date;
-	endTime?: Date;
-	duration?: number;
-}
-
-const SleepCard = (props: SleepProps) => {
-	const { title } = props;
+const SleepCard = (props: ISleep) => {
+	const { title, duration } = props;
 
 	return (
 		<View style={styles.item}>
 			<Text style={styles.title}>{title}</Text>
+			<Text>{duration}</Text>
 		</View>
 	);
 };
 
 const styles = StyleSheet.create({
 	item: {
-		backgroundColor: '#f9c2ff',
-		padding: 20,
+		backgroundColor: '#630bc1',
+		padding: 10,
 		marginVertical: 8,
-		marginHorizontal: 16
+		marginHorizontal: 16,
+		width: 350,
+		borderRadius: 10,
+		display: 'flex',
+		flexDirection: 'column',
+		gap: 10
 	},
 	title: {
-		fontSize: 32
+		fontSize: 18
 	}
 });
 

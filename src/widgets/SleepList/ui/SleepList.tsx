@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FlatList, View } from 'react-native';
 import SleepCard from '../../../entities/sleep';
+import { useSleepStore } from '../../../entities/sleep/model/sleep-store';
 
 const testData = [
 	{ id: 1, title: 'Дневной сон' },
@@ -8,12 +9,18 @@ const testData = [
 ];
 
 const SleepList = () => {
+	const { sleeps, fetchSleeps } = useSleepStore();
+
+	useEffect(() => {
+		fetchSleeps();
+	}, []);
+
 	return (
 		<View>
 			<FlatList
-				data={testData}
+				data={sleeps}
 				renderItem={({ item }) => <SleepCard title={item.title} />}
-				keyExtractor={(item) => item.id.toString()}
+				keyExtractor={(item) => item.$id.toString()}
 			/>
 		</View>
 	);

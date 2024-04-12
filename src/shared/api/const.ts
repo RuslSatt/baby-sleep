@@ -1,2 +1,3 @@
-export const DATABASE_ID = '661642d230e52a801104';
+export const PROJECT_ID = '661642d230e52a801104';
+export const DATABASE_ID = '66164301f38da8e63a90';
 export const SLEEPS_COLLECTION_ID = '661648cbb98776a1bf93';

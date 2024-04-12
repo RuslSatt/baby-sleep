@@ -1,10 +1,10 @@
 import { Client, Databases } from 'appwrite';
-import { DATABASE_ID } from './const';
+import { PROJECT_ID } from './const';
 
 const client = new Client();
 
 client
 	.setEndpoint('https://cloud.appwrite.io/v1')
-	.setProject(DATABASE_ID);
+	.setProject(PROJECT_ID);
 
 export const DB = new Databases(client);

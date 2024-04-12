@@ -1,4 +1,5 @@
-export interface ISleepCard {
+export interface ISleep {
+	$id: string;
 	title?: string;
 	description?: string;
 	startTime?: Date;
@@ -6,6 +7,6 @@ export interface ISleepCard {
 	duration?: number;
 }
 
-export interface ISleepCardSchema {
-	items?: ISleepCard[];
+export interface ISleepSchema {
+	sleeps?: ISleep[];
 }

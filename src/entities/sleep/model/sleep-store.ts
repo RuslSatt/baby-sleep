@@ -1,15 +1,17 @@
 import { create } from 'zustand';
-import { ISleepCardSchema } from './sleep-models';
-
-type State = {
-	items: ISleepCardSchema[]
-}
+import { ISleep, ISleepSchema } from './sleep-models';
+import { DB } from '../../../shared/api/appwrite';
+import { DATABASE_ID, SLEEPS_COLLECTION_ID } from '../../../shared/api/const';
 
 type Actions = {
-	getList: () => void
+	fetchSleeps: () => void
 }
 
-export const useListStore = create<State & Actions>((set) => ({
-	items: [],
-	getList: () => set(state => ({}))
+export const useSleepStore = create<ISleepSchema & Actions>((set) => ({
+	sleeps: [],
+	fetchSleeps: async () => {
+		const response = await DB.listDocuments(`${DATABASE_ID}`, `${SLEEPS_COLLECTION_ID}`);
+		const data = response.documents as unknown as ISleep[];
+		set({ sleeps: data });
+	}
 }));

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import SleepCard from '../../../entities/sleep';
 import { useSleepStore } from '../../../entities/sleep/model/sleep-store';
 
@@ -11,7 +11,7 @@ const SleepList = () => {
 	}, []);
 
 	return (
-		<View>
+		<View style={styles.container}>
 			<FlatList
 				data={sleeps}
 				renderItem={({ item }) => <SleepCard {...item} />}
@@ -20,5 +20,11 @@ const SleepList = () => {
 		</View>
 	);
 };
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1
+	}
+});
 
 export default SleepList;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { getViewDate } from '../../../shared/libs/day';
+import { getDuration, getViewDate } from '../../../shared/libs/day';
 import { ISleep, SleepTypes } from '../model/sleep-models';
 
 const SleepCard = (props: ISleep) => {
@@ -8,11 +8,14 @@ const SleepCard = (props: ISleep) => {
 
 	const text = type === SleepTypes.day ? 'Дневной сон' : 'Ночной сон';
 
+	const durationText = duration ? getDuration(duration) : undefined;
+
 	return (
 		<View style={styles.item}>
 			<Text style={styles.text}>{text}</Text>
 			<View style={styles.time}>
-				<Text style={styles.text}>{getViewDate(start)} - {getViewDate(end)} = {duration}</Text>
+				<Text
+					style={styles.text}>{getViewDate(start)} - {getViewDate(end)} = {durationText}</Text>
 			</View>
 			<Text style={styles.description}>{description}</Text>
 		</View>

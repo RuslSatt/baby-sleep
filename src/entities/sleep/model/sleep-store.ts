@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { ISleep, ISleepSchema } from './sleep-models';
 import { immer } from 'zustand/middleware/immer';
 import supabase from '../../../shared/api/supabase';
+import { getDiff } from '../../../shared/libs/day';
 
 type Actions = {
 	fetchSleeps: () => void;
@@ -24,10 +25,7 @@ export const useSleepStore = create<ISleepSchema & Actions>()(
 					const { start, end } = state.currentSleep;
 
 					if (start && end) {
-						const startTime = new Date(start).getTime();
-						const endTime = new Date(end).getTime();
-
-						state.currentSleep.duration = endTime - startTime;
+						state.currentSleep.duration = getDiff(start, end);
 					}
 				}
 			});

@@ -1,9 +1,9 @@
 export interface ISleep {
-	$id?: string;
+	id?: string;
 	type?: SleepType;
 	description?: string;
-	startDate?: Date;
-	endDate?: Date;
+	start?: Date;
+	end?: Date;
 	duration?: number;
 }
 
@@ -17,5 +17,6 @@ export enum SleepTypes {
 export interface ISleepSchema {
 	currentSleep?: ISleep;
 	sleeps: ISleep[];
+	isActive: boolean;
 	isLoading: boolean;
 }

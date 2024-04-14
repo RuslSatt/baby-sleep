@@ -5,22 +5,31 @@ import { useSleepStore } from '../../../entities/sleep/model/sleep-store';
 
 const ToggleSleepButton = () => {
 
-	const { createSleep, isLoading } = useSleepStore();
+	const { createSleep, updateSleep, setEndDate, isLoading, isActive } = useSleepStore();
 
 	const onToggleSleep = () => {
-		const Sleep: ISleep = {
-			type: SleepTypes.day,
-			startDate: new Date()
-		};
+		if (!isActive) {
+			const Sleep: ISleep = {
+				type: SleepTypes.day,
+				start: new Date()
+			};
 
-		createSleep(Sleep);
+			createSleep(Sleep);
+		}
+
+		if (isActive) {
+			setEndDate();
+			updateSleep();
+		}
 	};
+
+	const text = !isActive ? 'Начать сон' : 'Закончить сон';
 
 	return (
 		<View style={styles.container}>
 			<Pressable style={styles.button} disabled={isLoading}
 					   onPress={onToggleSleep}>
-				<Text style={styles.text}>Начать сон</Text>
+				<Text style={styles.text}>{text}</Text>
 			</Pressable>
 		</View>
 	);

@@ -4,7 +4,7 @@ import { getViewDate } from '../../../shared/libs/day';
 import { ISleep, SleepTypes } from '../model/sleep-models';
 
 const SleepCard = (props: ISleep) => {
-	const { type, duration, startDate, endDate, description } = props;
+	const { type, duration, start, end, description } = props;
 
 	const text = type === SleepTypes.day ? 'Дневной сон' : 'Ночной сон';
 
@@ -12,7 +12,7 @@ const SleepCard = (props: ISleep) => {
 		<View style={styles.item}>
 			<Text style={styles.text}>{text}</Text>
 			<View style={styles.time}>
-				<Text style={styles.text}>{getViewDate(startDate)} - {getViewDate(endDate)} = {duration}</Text>
+				<Text style={styles.text}>{getViewDate(start)} - {getViewDate(end)} = {duration}</Text>
 			</View>
 			<Text style={styles.description}>{description}</Text>
 		</View>

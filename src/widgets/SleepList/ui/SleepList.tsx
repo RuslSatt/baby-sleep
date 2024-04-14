@@ -15,7 +15,7 @@ const SleepList = () => {
 			<FlatList
 				data={sleeps}
 				renderItem={({ item }) => <SleepCard {...item} />}
-				keyExtractor={(item) => item.$id!!.toString()}
+				keyExtractor={(item) => item.id!!.toString()}
 			/>
 		</View>
 	);

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { OpenSleepForm, ToggleSleepButton } from '../../../features/add-sleep';
 
-const BottomBar = () => {
+const ButtonBar = () => {
 	return (
 		<View style={styles.bar}>
 			<ToggleSleepButton />
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default BottomBar;
+export default ButtonBar;

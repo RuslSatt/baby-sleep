@@ -1,13 +1,13 @@
 import React from 'react';
 import { StatusBar, StyleSheet, View } from 'react-native';
 import SleepList from '../widgets/SleepList';
-import ToggleSleepButton from '../features/add-sleep';
+import BottomBar from '../widgets/bottom-bar';
 
 const SleepsPage = () => {
 	return (
 		<View style={styles.container}>
 			<SleepList />
-			<ToggleSleepButton />
+			<BottomBar />
 		</View>
 	);
 };

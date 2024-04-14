@@ -3,6 +3,8 @@ import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
 import duration from 'dayjs/plugin/duration';
 
+dayjs.extend(duration);
+
 export function getViewDate(date?: Date): string | undefined {
 	if (date) {
 		dayjs.extend(utc);
@@ -14,7 +16,7 @@ export function getViewDate(date?: Date): string | undefined {
 }
 
 export function getDiff(start: Date, end: Date) {
-	dayjs.extend(duration);
+
 
 	const date1 = dayjs(start);
 	const date2 = dayjs(end);

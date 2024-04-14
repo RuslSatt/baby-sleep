@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { ISleep, SleepTypes } from '../../../entities/sleep';
 import { useSleepStore } from '../../../entities/sleep/model/sleep-store';
 
-const ToggleSleepButton = () => {
+export const ToggleSleepButton = () => {
 
 	const { createSleep, updateSleep, setEndDate, isLoading, isActive } = useSleepStore();
 
@@ -37,21 +37,21 @@ const ToggleSleepButton = () => {
 
 const styles = StyleSheet.create({
 	container: {
-		backgroundColor: 'transparent'
+		backgroundColor: 'transparent',
+		flexGrow: 1
 	},
 	button: {
 		backgroundColor: '#630bc1',
-		width: 350,
 		borderRadius: 10,
 		marginVertical: 10,
 		alignItems: 'center',
 		justifyContent: 'center',
-		padding: 10
+		padding: 10,
+		width: '100%'
+
 	},
 	text: {
 		fontSize: 16,
 		color: '#fafafa'
 	}
 });
-
-export default ToggleSleepButton;

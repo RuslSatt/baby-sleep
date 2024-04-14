@@ -24,8 +24,7 @@ const SleepCard = (props: ISleep) => {
 
 const styles = StyleSheet.create({
 	item: {
-		backgroundColor: '#630bc1',
-		color: '#fafafa',
+		backgroundColor: '#a6b6ff',
 		padding: 10,
 		marginVertical: 8,
 		marginHorizontal: 16,
@@ -37,7 +36,7 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		fontSize: 18,
-		color: '#fafafa'
+		color: '#040404'
 	},
 	time: {
 		display: 'flex',

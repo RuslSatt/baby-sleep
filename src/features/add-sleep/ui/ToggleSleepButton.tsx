@@ -5,7 +5,7 @@ import { useSleepStore } from '../../../entities/sleep/model/sleep-store';
 
 const ToggleSleepButton = () => {
 
-	const { createSleep } = useSleepStore();
+	const { createSleep, isLoading } = useSleepStore();
 
 	const onToggleSleep = () => {
 		const Sleep: ISleep = {
@@ -18,7 +18,8 @@ const ToggleSleepButton = () => {
 
 	return (
 		<View style={styles.container}>
-			<Pressable onPress={onToggleSleep}>
+			<Pressable style={styles.button} disabled={isLoading}
+					   onPress={onToggleSleep}>
 				<Text style={styles.text}>Начать сон</Text>
 			</Pressable>
 		</View>
@@ -27,6 +28,9 @@ const ToggleSleepButton = () => {
 
 const styles = StyleSheet.create({
 	container: {
+		backgroundColor: 'transparent'
+	},
+	button: {
 		backgroundColor: '#630bc1',
 		width: 350,
 		borderRadius: 10,

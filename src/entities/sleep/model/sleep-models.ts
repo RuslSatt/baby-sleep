@@ -17,4 +17,5 @@ export enum SleepTypes {
 export interface ISleepSchema {
 	currentSleep?: ISleep;
 	sleeps: ISleep[];
+	isLoading: boolean;
 }
